@@ -8,7 +8,7 @@ Donam per suposat que durant la instal·lació de *Ubuntu Server* hem triat l'op
 ````bash
 mkdir -p ~/.docker/cli-plugins/
 ````
-:warning: Hem de descarregar la versió que pertoqui de docker. Podem trobar-la a [Docker-Compose](https://github.com/docker/compose/releases). En aquest cas hem davallat la **v.2.10**
+:warning: Hem de descarregar la versió que pertoqui de docker compose. Podem trobar-la a [Docker-Compose](https://github.com/docker/compose/releases). En aquest cas hem davallat la **v.2.10**
 ```bash
 curl -SL https://github.com/docker/compose/releases/download/v2.10/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 chmod +x ~/.docker/cli-plugins/docker-compose
@@ -24,20 +24,20 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     -v portainer_data:/data \
     portainer/portainer-ce:2.14.2
 ```
-Configuram portainer anant a la pàgina del servidor on l'hem instal·lat: **https://'ip':9443**
+Configuram portainer anant a la pàgina del servidor on l'hem instal·lat: `https://IP:9443`
 - Introduïm la contrasenya de l'usuari administrador
 - Començam amb *Getting started*
 
 ## Instal·lam i configuram Apache des de portainer
-- Anam a la pàgina https://'ip':9443
+- Anam a la pàgina `https://IP:9443`
 - App templates
 - Httpd Container
   - En avançat, hem de cercar per mapejar el port 80 del contenidor a un altre port del servidor, p.e. el 8081
 
-Així ja tindrem instal·lat Apache corrent al port 8081. Podem confirmar que funciona anant a http://'ip':8081.
+Així ja tindrem instal·lat Apache corrent al port 8081. Podem confirmar que funciona anant a `http://IP:8081`
 Toca sortir la pantalla de **It works!**
 
-:exclamation: Si volem activar el mòdul d'estadístiques farem:
+:star: Si volem activar el mòdul d'estadístiques farem:
 - Dins el contenidor, ens ficam a la consola
 - Instal·lam la comanda nano:
 ```bash
