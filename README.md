@@ -28,3 +28,33 @@ Configuram portainer anant a la pàgina del servidor on l'hem instal·lat: **htt
 - Introduïm la contrasenya de l'usuari administrador
 - Començam amb *Getting started*
 
+## Instal·lam i configuram Apache des de portainer
+- Anam a la pàgina https://'ip':9443
+- App templates
+- Httpd Container
+  - En avançat, hem de cercar per mapejar el port 80 del contenidor a un altre port del servidor, p.e. el 8081
+
+Així ja tindrem instal·lat Apache corrent al port 8081. Podem confirmar que funciona anant a http://'ip':8081.
+Toca sortir la pantalla de **It works!**
+
+:exclamation: Si volem activar el mòdul d'estadístiques farem:
+- Dins el contenidor, ens ficam a la consola
+- Instal·lam la comanda nano:
+```bash
+apt install nano
+```
+- Configuram correctament el modul status
+```bash
+cd conf
+nano httpd.conf
+```
+Cercam que la linia *LoadModule status_module modules/mod_status.so* estigui descomentada
+Afegim el següent al final del fitxer:
+```yaml
+<Location /server-status>
+    SetHandler server-status
+    Order allow,deny
+    Allow from all
+</Location>
+```
+
